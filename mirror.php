@@ -41,7 +41,7 @@ $commands = array();
 if (!is_dir(sprintf('%s/%s', LOCAL_CACHE, 'refs'))) {
     $commands[] = sprintf('git clone --bare %s %s', SOURCE_REPOSITORY, LOCAL_CACHE);
 } else {
-    $commands[] = sprintf('git fetch --prune origin');
+    $commands[] = sprintf('git fetch -p origin');
 }
 
 $commands[] = sprintf('git push --mirror %s', TARGET_REPOSITORY);
