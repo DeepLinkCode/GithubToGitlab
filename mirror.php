@@ -39,7 +39,7 @@ chdir(LOCAL_CACHE);
 $commands = array();
 
 if (!is_dir(sprintf('%s/%s', LOCAL_CACHE, 'refs'))) {
-    $commands[] = sprintf('git clone --bare %s %s', SOURCE_REPOSITORY, LOCAL_CACHE);
+    $commands[] = sprintf('git clone --mirror %s %s', SOURCE_REPOSITORY, LOCAL_CACHE);
 } else {
     $commands[] = sprintf('git fetch -p origin');
 }
