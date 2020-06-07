@@ -1,7 +1,7 @@
 # Github to Gitlab mirror repository in PHP
 
 The idea here is to mirror the repository using crontab every minute.
-- As you all know about [Gitlab Mirror Issue](https://gitlab.com/gitlab-com/support-forum/-/issues/5331). 
+- As you all know about [Free Gitlab Mirror Support Ended on March 22 for external Repositories](https://archive.md/44Rv6). 
 - Now in new premium update gitlab had stopped the mirroring of external repository making it's a [premium feature](https://about.gitlab.com/releases/2020/03/12/free-period-for-cicd-external-repositories/), so this is a replication of that feature.
 
 ## Installation
