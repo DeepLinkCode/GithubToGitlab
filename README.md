@@ -17,6 +17,23 @@ Also make sure you have Github and Gitlab ssh installed.
 ```
 * Edit mirror.php and set appropriate git ssh config for repository on line number 19 and 22
 
+* Now everything is in place, but because gitlab keeps it's own "special" branches in place, you might get these kinds of errors:
+
+```bash
+ ! [remote rejected] refs/keep-around/09c68d4f76f68041438040e3bb4316d5ca1d5135 -> refs/keep-around/09c68d4f76f68041438040e3bb4316d5ca1d5135 (deny updating a hidden ref)
+```
+ - We need to filter those out of the branches we _do_ want to mirror. In order to do that we edit the `config` file again.
+
+ - We should replace `fetch = +refs/*:refs/*` which basically says, everything, and just select `tags`, `branches` and `head`
+
+```bash
+[remote "mirror"]
+    url = git@gitlab.external:reponame.git
+    push = +refs/heads/*:refs/heads/*
+    push = +refs/tags/*:refs/tags/*
+    mirror = true
+```
+
 ## Any cause of failure on self-hosted server:
  
  - The public ssh key of www-data should have read and write access to source repository.
